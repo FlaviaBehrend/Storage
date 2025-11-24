@@ -9,4 +9,20 @@ document.getElementById("formcadastro").addEventListener("submit", function(even
     lista_alunos.push(aluno)
     /*Para salvar nop localStorage o novo aluno digitado */
     localStorage.setItem('lista_alunos', JSON.stringify(lista_alunos))
+    document.getElementById('formcadastro').reset()
+    exibir_alunos()
 })
+function exibir_alunos()
+{//tenta carregar dados do aquivo, caso não haja alunos cadastrados, cria uma lista vazia
+    var lista_alunos = JSON.parse(localStorage.getItem('relacaoaluno')) || []
+    //define onde os dadsos de alunos seraão exibidos
+    var output = document.getElementById('output')
+    //limpa o output para atualizar a lisrafem de alunos a serem exibidos
+    output.innerHTML = ''
+    for(let i = 0; i<lista_alunos.length;i++){
+        let li = document.createElement('li')
+        //imprime o nome dos alunos
+        li.textContent='Nome: '+lista_alunos[i].nome + 'Idade: '+lista_alunos.idade
+        output.appendChild(li)
+    }
+}
