@@ -2,4 +2,7 @@ document.getElementById("formcadastro").addEventListener("submit", function(even
     event.preventDefault();
     var nome = document.getElementById("nome").value;
     var idade = document.getElementById("idade").value;
+    //Atribui dadosn de nome e idade paea um objeto aluno
+    var aluno = {nome:nome, idade:idade}
+    var lista_alunos = JSON.parse(localStorage.getItem('relacaoalunos'/*nome do arquivo do navegador */))||[]//converte  o que esta no arquivo em uma lista
 })
