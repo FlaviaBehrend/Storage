@@ -4,5 +4,9 @@ document.getElementById("formcadastro").addEventListener("submit", function(even
     var idade = document.getElementById("idade").value;
     //Atribui dadosn de nome e idade paea um objeto aluno
     var aluno = {nome:nome, idade:idade}
-    var lista_alunos = JSON.parse(localStorage.getItem('relacaoalunos'/*nome do arquivo do navegador */))||[]//converte  o que esta no arquivo em uma lista
+    var lista_alunos = JSON.parse(localStorage.getItem('relacaoalunos'/*nome do arquivo do navegador */))||[]//converte  o que esta no arquivo em uma lista ou cria uma lista vazia. Vai do campo de texto para um objeto e para a lista
+    //insere os dados digitados na caixa de texto no objeto aluno e na sequencia joga para a lista de alunos
+    lista_alunos.push(aluno)
+    /*Para salvar nop localStorage o novo aluno digitado */
+    localStorage.setItem('lista_alunos', JSON.stringify(lista_alunos))
 })
